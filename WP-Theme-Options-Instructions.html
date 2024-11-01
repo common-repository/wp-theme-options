@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title>WP-Options</title><style>
+body                  {background-color:#ddd;font-family:Georgia,sans-serif;font-size:80%;}
+h1                    {font-size:19pt;}
+h2                    {font-size:15pt;}
+div#wrap              {margin:auto;width:80%;background-color:#fff;padding:1em;border:5px solid #ccc;}
+div#header            {background-color:#356aa0;color:#fff;padding:1em;margin-bottom:.5em;}
+div#header h1         {margin:0;padding:0;}
+div#header h2         {margin:0;padding:0;}
+div#content           {padding:2em 1em;}
+div#content h2        {border-bottom:1px solid #ddd;margin-bottom:.5em;}
+div#footer            {text-align:center;margin-top:.5em;}
+</style></head>
+<body>
+<div id="wrap">
+<div id="content">
+<h1 style="text-align: center;">Zeaks WP Theme Options</h1>
+<h2>Using WP Options for a child theme.</h2>
+<br />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Step
+1</span><span style="font-family: Helvetica,Arial,sans-serif;">.
+It's asummed you know how to create a child theme and have done so.
+Rename zeak-wp-options.php to functions.php (alternativly you can copy
+the contents from the plugin to your existing functions.php)</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Step
+2</span><span style="font-family: Helvetica,Arial,sans-serif;">.
+Replace line 50</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(153, 0, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-default', plugin_dir_url( __FILE__ ) .
+'includes/colors/default/default.css', array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">With</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-default', get_stylesheet_directory_uri() .
+'/includes/colors/default/default.css', array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Step
+3.</span><span style="font-family: Helvetica,Arial,sans-serif;">
+Replace line 52</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(153, 0, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-dark', plugin_dir_url( __FILE__ ) . 'includes/colors/dark/dark.css',
+array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">With</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-dark', get_stylesheet_directory_uri() .
+'/includes/colors/dark/dark.css', array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Step
+4.</span><span style="font-family: Helvetica,Arial,sans-serif;">
+Replace line 54</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(153, 0, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-light', plugin_dir_url( __FILE__ ) .
+'includes/colors/light/light.css', array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">With</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-light', get_stylesheet_directory_uri() .
+'/includes/colors/light/light.css', array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Step
+5.</span><span style="font-family: Helvetica,Arial,sans-serif;">
+Replace line 61</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(153, 0, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-default', plugin_dir_url( __FILE__ ) .
+'includes/colors/default/default.css', array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">With</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">wp_enqueue_style(
+'wpoptions-default', get_stylesheet_directory_uri() .
+'/includes/colors/default/default.css', array(), null );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Step
+6.</span><span style="font-family: Helvetica,Arial,sans-serif;">
+Replace line 126</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(153, 0, 0); font-family: Helvetica,Arial,sans-serif;">wp_register_script('wp-options.js',
+plugin_dir_url( __FILE__ ) . 'includes/wp-options.js', array('jquery'));</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">With</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">wp_register_script('wp-options.js',
+get_stylesheet_directory_uri() . '/includes/wp-options.js', array('jquery'));</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Step
+7.</span><span style="font-family: Helvetica,Arial,sans-serif;">
+Change line 134</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(153, 0, 0); font-family: Helvetica,Arial,sans-serif;">$data['plugin_dir']
+= plugin_dir_url( __FILE__ );</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">With</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">$data['plugin_dir']
+= get_stylesheet_directory_uri() . '/';</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">Save
+and close functions.php. Visit Admin &gt; Appearance &gt;
+WP-Options</span>
+<h2>Additional Information.</h2>
+<br />
+<span style="font-family: Helvetica,Arial,sans-serif;">Relevant
+sections of the plugin are commented. If you want to add or remove
+fonts from the selector, open zeak-wp-options.php and scroll to line
+150. You'll see how the fonts have been added. </span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-weight: bold; font-family: Helvetica,Arial,sans-serif;">Example</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+'Arial' =&gt; array(</span><br style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; 'name' =&gt; 'Arial',</span><br style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; 'import' =&gt; '',</span><br style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; 'css' =&gt; "font-family: Arial,
+sans-serif;"</span><br style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;" />
+<span style="color: rgb(51, 0, 51); font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+),</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">This
+adds the font Arial to the selector. Notice the 'import'=&gt;", is
+empty. If you want to add a Google font, you'll need to add the import
+call, this information can be found on the Google fonts website. </span><a style="font-family: Helvetica,Arial,sans-serif;" href="http://www.google.com/webfonts" target="_blank">http://www.google.com/webfonts</a><br />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">Say
+for example you wanted to have the Google font <a href="http://www.google.com/webfonts/specimen/Salsa">Salsa</a>
+added to my selector. I'd find it on the Google fonts website, click
+"Open Salsa in Google Web Fonts" then scroll down and click the
+"@import" tab. <br />
+This is what you should find there </span><span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">@import
+url(http://fonts.googleapis.com/css?family=Salsa);</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">Scroll
+down a bit more and you will find </span><span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">font-family:
+'Salsa',</span><span style="font-family: Helvetica,Arial,sans-serif;"> cursive;
+which we'll also need.</span><br />
+<br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">Now
+all we need to do is add it to the list. Using the above as a template,
+here is what my finished code would look like. (green text is what was
+changed)</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+'</span><span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">Salsa</span><span style="font-family: Helvetica,Arial,sans-serif;">' =&gt;
+array(</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+'name' =&gt; '</span><span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">Salsa</span><span style="font-family: Helvetica,Arial,sans-serif;">',</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+'import' =&gt; '</span><span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">@import
+url(http://fonts.googleapis.com/css?family=Salsa);</span><span style="font-family: Helvetica,Arial,sans-serif;">',</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+'css' =&gt; "</span><span style="color: rgb(0, 153, 0); font-family: Helvetica,Arial,sans-serif;">font-family:
+'Salsa', cursive</span><span style="font-family: Helvetica,Arial,sans-serif;">;"</span><br style="font-family: Helvetica,Arial,sans-serif;" />
+<span style="font-family: Helvetica,Arial,sans-serif;">&nbsp;&nbsp;&nbsp;
+),</span><big><br />
+</big><span style="font-family: Helvetica,Arial,sans-serif;">Now
+go back and refresh the Options page, you should see the new Salsa font
+in the list.</span><big><br /><br /></big><h2>Adding your own classes for fonts.</h2><big>
+<small><span style="font-family: Helvetica,Arial,sans-serif;">By
+default the title font selector controls these classes&nbsp;h1, h2, h3,
+h4, h5, h6, .widget .heading, #site-title a, #site-title, .entry-title {</span><br style="font-family: Helvetica,Arial,sans-serif;" /><span style="font-family: Helvetica,Arial,sans-serif;">By default the content font selector controls div.entry-content</span><br style="font-family: Helvetica,Arial,sans-serif;" /><br style="font-family: Helvetica,Arial,sans-serif;" /><span style="font-family: Helvetica,Arial,sans-serif;">These work well with a Twenty Ten child theme, but not all themes use the same classes and ID's. <br /><br />To
+change these, open zeak-wp-options.php (or functions.php if you've
+renamed it) and around line 100 you'll see echo&nbsp;&nbsp;<span style="color: rgb(0, 153, 0);">&nbsp;"h1, h2, h3, h4, h5, h6, .widget .heading, #site-title a, #site-title, .entry-title {</span> This is for the title fonts, they must be added separated by a comma</span><br style="font-family: Helvetica,Arial,sans-serif;" /><br style="font-family: Helvetica,Arial,sans-serif;" /><span style="font-family: Helvetica,Arial,sans-serif;">A few lines below that on 108 you'll find <span style="color: rgb(0, 153, 0);">echo "div.entry-content{</span> this is for the content font, same things goes for this, use a comma to separate classes and ID's.</span></small><br /><br />
+</big><span style="font-family: Helvetica,Arial,sans-serif;">If
+you need further assistance or run into problems, be sure to visit </span><a style="font-family: Helvetica,Arial,sans-serif;" href="http://zeaks.org/">http://zeaks.org</a><span style="font-family: Helvetica,Arial,sans-serif;"> and leave
+a post on the forums.</span></div>
+</div>
+</body></html>
